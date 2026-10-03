@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#fff0f5">
+	<title>Sriyans ❤️ Binita | One Month Together</title>
+	<style>
+		* { margin: 0; padding: 0; box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+			font-family: Georgia, "Times New Roman", serif;
+			background: #fff0f5;
+			color: #4a1f2d;
+			overflow-x: hidden;
+		}
+		.heart {
+			position: fixed;
+			bottom: -40px;
+			font-size: 22px;
+			animation: floatheart 8s linear infinite;
+			opacity: 0;
+			z-index: 20;
+			pointer-events: none;
+		}
+		@keyframes floatheart {
+			0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+			10% { opacity: .8; }
+			90% { opacity: .8; }
+			100% { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
+		}
+		.hero {
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			padding: 60px 25px;
+			background: radial-gradient(circle at top left, #ffc0d4, transparent 40%),
+									radial-gradient(circle at bottom right, #ffb4c9, transparent 40%), #fff0f5;
+		}
+		.hero-content { max-width: 760px; }
+		.small-title {
+			font-size: 17px;
+			letter-spacing: 4px;
+			color: #a3385c;
+			margin-bottom: 20px;
+		}
+		.hero h1 {
+			font-size: clamp(55px, 13vw, 110px);
+			color: #c34268;
+			line-height: 1;
+			margin-bottom: 25px;
+		}
+		.hero h2 { font-size: clamp(25px, 5vw, 45px); color: #d44770; margin-bottom: 20px; }
+		.hero p { font-size: 18px; line-height: 1.7; color: #704052; max-width: 600px; margin: auto; }
+		.scroll-btn {
+			display: inline-block;
+			margin-top: 35px;
+			padding: 13px 28px;
+			background: #d44770;
+			color: white;
+			text-decoration: none;
+			border-radius: 30px;
+			transition: .3s;
+		}
+		.scroll-btn:hover { background: #b8325b; transform: scale(1.05); }
+		.memories { padding: 80px 20px; text-align: center; background: #fff5f8; }
+		.memories h2, .message h2, .timeline h2 {
+			color: #d44770;
+			font-size: clamp(30px, 6vw, 42px);
+			margin-bottom: 12px;
+		}
+		.section-text { color: #777; margin-bottom: 40px; line-height: 1.6; }
+		.gallery {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+			gap: 25px;
+			max-width: 950px;
+			margin: auto;
+		}
+		.photo {
+			background: white;
+			padding: 10px;
+			border-radius: 18px;
+			box-shadow: 0 10px 25px rgba(200, 80, 120, .15);
+			transition: .3s;
+		}
+		.photo:hover { transform: translateY(-8px) rotate(1deg); }
+		.photo img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; display: block; }
+		.photo p { padding: 14px 5px 8px; color: #d44770; font-size: 16px; }
+		.message {
+			padding: 90px 20px;
+			text-align: center;
+			background: linear-gradient(135deg, #fff0f5, #ffe4ec);
+		}
+		.message-box {
+			max-width: 750px;
+			margin: 30px auto 0;
+			padding: 40px;
+			background: white;
+			border-radius: 22px;
+			box-shadow: 0 10px 30px rgba(200, 80, 120, .15);
+			line-height: 1.9;
+			color: #555;
+			text-align: left;
+			font-size: 17px;
+		}
+		.message-box p { margin-bottom: 20px; }
+		.message-box strong { color: #d44770; }
+		.message-box h3 { margin-top: 25px; color: #d44770; font-size: 25px; text-align: center; }
+		.signature { text-align: right; color: #d44770; margin-top: 30px; font-style: italic; }
+		.timeline { padding: 80px 20px; text-align: center; background: white; }
+		.memory {
+			max-width: 650px;
+			margin: 22px auto;
+			padding: 22px;
+			border-left: 4px solid #ff8fab;
+			background: #fff5f8;
+			border-radius: 10px;
+			text-align: left;
+		}
+		.memory h3 { color: #d44770; margin-bottom: 8px; }
+		.memory p { color: #666; line-height: 1.6; }
+		.surprise {
+			padding: 90px 20px;
+			text-align: center;
+			background: radial-gradient(circle at center, #ffd6e2, #fff5f8);
+		}
+		.surprise h2 { color: #d44770; font-size: clamp(30px, 6vw, 40px); margin-bottom: 20px; }
+		.surprise button {
+			border: none;
+			padding: 15px 30px;
+			border-radius: 30px;
+			background: #d44770;
+			color: white;
+			font: inherit;
+			font-size: 17px;
+			cursor: pointer;
+			transition: .3s;
+		}
+		.surprise button:hover { transform: scale(1.08); background: #b8325b; }
+		.surprise button:focus-visible, .scroll-btn:focus-visible { outline: 3px solid #4a1f2d; outline-offset: 4px; }
+		#secret {
+			display: none;
+			max-width: 650px;
+			margin: 30px auto 0;
+			background: white;
+			padding: 30px;
+			border-radius: 20px;
+			color: #d44770;
+			font-size: 20px;
+			line-height: 1.7;
+			box-shadow: 0 10px 30px rgba(200, 80, 120, .2);
+		}
+		#secret.is-visible { display: block; animation: reveal .5s ease both; }
+		@keyframes reveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+		footer { padding: 30px; text-align: center; background: #d44770; color: white; }
+		@media (max-width: 600px) {
+			.small-title { font-size: 13px; letter-spacing: 3px; }
+			.message-box { padding: 26px 22px; font-size: 16px; }
+			.photo img { height: 260px; }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			*, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+		}
+	</style>
+</head>
+<body>
+	<div class="heart" style="left:10%; animation-delay:0s;" aria-hidden="true">❤️</div>
+	<div class="heart" style="left:30%; animation-delay:2s;" aria-hidden="true">💕</div>
+	<div class="heart" style="left:50%; animation-delay:4s;" aria-hidden="true">💗</div>
+	<div class="heart" style="left:70%; animation-delay:1s;" aria-hidden="true">❤️</div>
+	<div class="heart" style="left:90%; animation-delay:3s;" aria-hidden="true">💖</div>
+
+	<main>
+		<section class="hero">
+			<div class="hero-content">
+				<div class="small-title">A LITTLE SURPRISE FOR YOU</div>
+				<h1>1 Month ❤️</h1>
+				<h2>With My Favourite Person</h2>
+				<p>One month of smiles, conversations, beautiful memories and countless little moments that became special because of you.</p>
+				<a href="#memories" class="scroll-btn">Our Memories ↓</a>
+			</div>
+		</section>
+
+		<section class="memories" id="memories">
+			<h2>Our Beautiful Memories 📸</h2>
+			<p class="section-text">Every picture has a little piece of our story. ❤️</p>
+			<div class="gallery">
+				<div class="photo"><img src="photo1.jpg" alt="Our first memory"><p>Our first beautiful memory ❤️</p></div>
+				<div class="photo"><img src="photo2.jpg" alt="A beautiful memory together"><p>A moment I'll never forget 🥹</p></div>
+				<div class="photo"><img src="photo3.jpg" alt="A special moment together"><p>You make every moment special 💕</p></div>
+				<div class="photo"><img src="photo4.jpg" alt="One of our favourite memories"><p>One of my favourite memories ❤️</p></div>
+			</div>
+		</section>
+
+		<section class="message">
+			<h2>A Letter From My Heart 💌</h2>
+			<p class="section-text">Some feelings are better written than spoken...</p>
+			<div class="message-box">
+				<p><strong>To My Favourite Person, ❤️</strong></p>
+				<p>Aaj humara one month complete ho gaya... aur sach bolu toh pata hi nahi chala ki ye ek mahina itni jaldi kaise nikal gaya.</p>
+				<p>Jab maine socha bhi nahi tha ki mujhe girlfriend chahiye, us waqt Bhagwan ji ne hum dono ko unexpectedly mila diya. Jo bhi humne saath mein experience kiya, woh bahut achha raha. Meri life mein aapke jaisa importance kisi ne nahi diya. Meri life mein bahut kuch ho chuka tha, par aapke aane ke baad har cheez achhi hone lagi. ❤️</p>
+				<p>I never knew that someone could become this important to me in such a short time. But today, when I think about you, I realize that this one month has given me something I had almost stopped believing in again—something genuine, peaceful, and special. ❤️</p>
+				<p>I have learned so many things from my past. I learned that words are easy, but actions matter. I learned that trust takes time, that communication matters, and that you should never take someone’s presence for granted. Most importantly, I learned what it feels like to lose something you truly valued, and because of that, I understand even more how precious it is to have someone who genuinely cares.</p>
+				<p>And then you came into my life. 🥺❤️</p>
+				<p>You didn’t suddenly erase my past, but you made me look at love differently. You made me believe that maybe something beautiful can still be built when two people are honest, patient, caring, and willing to understand each other.</p>
+				<p>You are very special to me. Sometimes I call you my “last hope,” not because I want to put any pressure on you, but because after everything I’ve learned, I want to give this relationship my most honest heart. I don’t want to repeat old mistakes. I want to learn, grow, communicate, and make the little moments with you matter. 🫂❤️</p>
+				<p>This is just our first month... ek chhoti si beginning of something that has already become very precious to me.</p>
+				<p><strong>Thank you for choosing me, thank you for staying, and thank you for making this one month so beautiful.</strong></p>
+				<p>Happy One Month, My Love. ❤️<br><br>I hope this is just the beginning of many more beautiful memories together.</p>
+				<h3>One month down... hopefully many more to go. 🫶🏻❤️</h3>
+				<p class="signature">— Yours, always ❤️</p>
+			</div>
+		</section>
+
+		<section class="timeline">
+			<h2>Our Little Journey 🌸</h2>
+			<p class="section-text">From the beginning to this beautiful day...</p>
+			<div class="memory"><h3>💗 The Beginning</h3><p>The day our story started and everything became a little more beautiful.</p></div>
+			<div class="memory"><h3>🥰 Our First Memories</h3><p>All those conversations, laughs and little moments that brought us closer.</p></div>
+			<div class="memory"><h3>❤️ One Month Together</h3><p>One month completed, and hopefully many more beautiful memories waiting for us.</p></div>
+		</section>
+
+		<section class="surprise">
+			<h2>One Last Surprise 🎁</h2>
+			<p class="section-text">There's something I want to tell you...</p>
+			<button type="button" onclick="showSecret()" aria-controls="secret" aria-expanded="false">Open My Heart ❤️</button>
+			<div id="secret" aria-live="polite">
+				You are one of the most beautiful parts of my life. ❤️<br><br>
+				Happy 1 Month to us! 🥹💕<br><br>
+				Here's to our memories, our smiles, our silly conversations and all the beautiful moments still waiting for us.<br><br>
+				<strong>I am really lucky to have you. ❤️</strong>
+			</div>
+		</section>
+	</main>
+
+	<footer>Made with ❤️ just for you</footer>
+	<script>
+		function showSecret() {
+			const secret = document.getElementById("secret");
+			const button = document.querySelector(".surprise button");
+			secret.classList.add("is-visible");
+			button.setAttribute("aria-expanded", "true");
+		}
+	</script>
+</body>
+</html>
